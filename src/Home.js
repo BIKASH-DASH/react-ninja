@@ -1,17 +1,22 @@
+import react, { useState } from "react";
+
 const Home = () => {
+    const [name, setName] = useState('mirio');
+    const [age, setAge] = useState('age')
     const hendelClicK = () => {
         console.log("hello ninja");
+        setName('dash');
+        setAge ('23')
     }
 
-    const hendelClickAgain = (name,event) =>{
-        console.log('hello '+name,event)
-    }
+
 
     return (
         <div className="Home">
             <h2>Home page</h2>
+            <p>name :{name}</p>
+            <p>age : {age}</p>
             <button onClick={hendelClicK} >Click me</button>
-            <button onClick={(e)=>hendelClickAgain("helloBikash",e)}>Click again</button>
         </div>
     );
 }
