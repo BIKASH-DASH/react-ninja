@@ -13,7 +13,7 @@ const Home = () => {
             <BlogList blogs={blogs} title={'theBlogs'} />
             <hr />
             
-            <BlogList blogs={blogs} title={'theSecondBlog'} />
+            <BlogList blogs={blogs.filter((blog)=> blog.author==='mario' )} title={'theSecondBlog'} />
         </div>
     );
 }
