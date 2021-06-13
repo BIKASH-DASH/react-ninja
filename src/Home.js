@@ -10,16 +10,23 @@ const Home = () => {
     }
 
     useEffect(()=>{
-        console.log('use effect run');
+        fetch('http://localhost:8800/blogs')
+        .then(res => {
+            return res.json()
+        })
+        .then((e)=>{
+            //console.log(e);
+            setBlogs(e)
+        })
         
-    },[Name])
+    },[])
 
     return (
         <div className="Home">
             <p>{Name}</p>
             <button onClick={()=>setName('babu')}>change Name</button>
 
-            <BlogList blogs={blogs.filter((blog) => blog.author === 'mario')} title={'theSecondBlog'} deleteThisBlog={deleteThisBlog} />
+        { blogs && <BlogList blogs={blogs} title={'theSecondBlog'} deleteThisBlog={deleteThisBlog} /> }
         </div>
     );
 }
