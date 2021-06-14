@@ -26,6 +26,7 @@ export default function useFetch(url) {
                     setError(err.message);
                 })
         }, 1000);
+        return () => console.log('clean up');
     }, [url])
 
     return {
